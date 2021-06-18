@@ -1,0 +1,67 @@
+<section class="hero is-light">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">Article List</h1>
+            <h3 class="subtitle">You can view, delete and create articles from this page.</h3>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <div class="b-table">
+            <div class="table-wrapper has-mobile-cards">
+                <table class="table is-fullwidth is-striped is-hoverable is-fullwidth">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Excerpt</th>
+                            <th>Published Date</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="is-empty" *ngIf="isListEmpty">
+                            <td colspan="7">
+                                <section class="section">
+                                    <div class="content has-text-grey has-text-centered">
+                                        <p><span class="icon is-large"><i
+                                                    class="mdi mdi-emoticon-sad mdi-48px"></i></span></p>
+                                        <p>Nothing's there&hellip;</p>
+                                    </div>
+                                </section>
+                            </td>
+                        </tr>
+                        <tr *ngFor="let article of articles">
+                            <td data-label="Name">{{ article.title }}</td>
+                            <td data-label="Company">{{ article.excerpt }}</td>
+                            <td data-label="Created">
+                                <small class="has-text-grey is-abbr-like" title="Oct 25, 2020">{{ article.publishedDate
+                                    | date: 'medium'
+                                    }}</small>
+                            </td>
+                            <td class="is-actions-cell">
+                                <div class="buttons is-right">
+                                    <button class="button is-small is-info" type="button"
+                                        (click)="viewArticle(article)">
+                                        <span class="icon"><i class="mdi mdi-eye"></i></span>
+                                    </button>
+                                    <button class="button is-small is-danger jb-modal" data-target="sample-modal"
+                                        type="button" (click)="deleteArticle(article)">
+                                        <span class="icon"><i class="mdi mdi-trash-can"></i></span>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="hero-body">
+        <div class="container">
+            <button class="button is-large is-primary" type="button" (click)="addArticle()">
+                <span class="icon"><i class="mdi mdi-plus"></i></span>
+            </button>
+        </div>
+    </div>
+</section>

@@ -21,12 +21,17 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              { "glob": "mdi.svg", "input": "./node_modules/@mdi/angular-material", "output": "./assets" }
             ],
             "styles": [
-              "src/styles.css"
+              "./node_modules/bulma/css/bulma.min.css",
+              "src/styles.css",
+              "./node_modules/alertifyjs/build/css/alertify.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/alertifyjs/build/alertify.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -119,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "test-angular-articles"
+    }
+  },
+  "defaultProject": "test-angular-articles",
+  "cli": {
+    "analytics": false
+  }
 }

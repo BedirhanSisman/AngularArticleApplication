@@ -1,0 +1,18 @@
+@import '~bulma/css/bulma.css';
+
+h1.title, h3.subtitle {
+text-align: center;
+}
+h1.title {
+font-weight: 900;
+}
+.is-main h1.title {
+font-size: 3rem;
+}
+.is-main h3.subtitle {
+font-size: 2rem;
+}
+footer.footer .logo img {
+max-height: 30px;
+width: auto;
+}
